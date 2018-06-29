@@ -42,54 +42,62 @@ export default class Calendar extends Component {
         return firstDay;
     }
 
-    setMonth = (month) => {
-        let monthNo = this.months.indexOf(month);
-        let dateContext = Object.assign({}, this.state.dateContext);
-        dateContext = moment(dateContext).set("month", monthNo);
-        this.setState({
-            dateContext: dateContext
-        });
-    }
-
-    onSelectChange = (e, data) => {
-      this.setMonth(data);
-      this.props.onMonthChange && this.props.onMonthChange();
-    }
-
-    SelectList = (props) => {
-      let popup = props.data.map((data) => {
-        return (
-          <div key={data}>
-            <a href="#" onClick={(e) => {this.onSelectChange(e, data)}}>
-              {data}
-            </a>
-          </div>
-        );
-      });
-      return (
-        <div className="month-popup">
-          {popup}
-        </div>
-      );
-    }
-
-    onChangeMonth = (e, month) => {
-      this.setState({
-          showMonthPopup: !this.state.showMonthPopup
-      });
-    }
-
-    MonthNav = () => {
-      return (
-        <span className="label-month"
-        onClick={(e) => {this.onChangeMonth(e, this.month())}}>
-          {this.month()}
-          {this.state.showMonthPopup &&
-            <this.SelectList data ={this.months} />
-          }
-        </span>
-      );
-    }
+    // setMonth = (month) => {
+    //     let monthNo = this.months.indexOf(month);
+    //     let dateContext = Object.assign({}, this.state.dateContext);
+    //     dateContext = moment(dateContext).set("month", monthNo);
+    //     this.setState({
+    //         dateContext: dateContext
+    //     });
+    // }
+    //
+    // onSelectChange = (e, data) => {
+    //   this.setMonth(data);
+    //   this.props.onMonthChange && this.props.onMonthChange();
+    // }
+    //
+    // SelectList = (props) => {
+    //   let popup = props.data.map((data) => {
+    //     return (
+    //       <div key={data}>
+    //         <a href="#" onClick={(e) => {this.onSelectChange(e, data)}}>
+    //           {data}
+    //         </a>
+    //       </div>
+    //     );
+    //   });
+    //   return (
+    //     <div className="month-popup">
+    //       {popup}
+    //     </div>
+    //   );
+    // }
+    //
+    // onChangeMonth = (e, month) => {
+    //   this.setState({
+    //       showMonthPopup: !this.state.showMonthPopup
+    //   });
+    // }
+    //
+    // MonthNav = () => {
+    //   return (
+    //     <span className="label-month"
+    //     onClick={(e) => {this.onChangeMonth(e, this.month())}}>
+    //       {this.month()}
+    //       {this.state.showMonthPopup &&
+    //         <this.SelectList data ={this.months} />
+    //       }
+    //     </span>
+    //   );
+    // }
+    //
+    // YearNav = () => {
+    //   return (
+    //     <span className="label-year"
+    //     {this.year()}
+    //     </span>
+    //   );
+    // }
 
   render() {
 
@@ -153,7 +161,8 @@ export default class Calendar extends Component {
           <thead>
             <tr className="calendar-header">
               <td colSpan="5">
-                <this.MonthNav />
+                <span className="label-month">{this.month()} </span>
+                <span className="label-year"> {this.year()}</span>
               </td>
             </tr>
           </thead>
