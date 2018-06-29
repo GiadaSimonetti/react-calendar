@@ -153,6 +153,19 @@ export default class Calendar extends Component {
             {trElems}
           </tbody>
         </table>
+        <div className="calendar-footer">
+            <div className="delivery-message-box">
+            <p className="delivery-message"> Delivery dates will change
+            <br />for all upcoming boxes
+            </p>
+            <button className="btn btn-calendar btn-cancel"> {"cancel,"}
+            <br />{"don't change"}
+            </button>
+            <button className="btn btn-calendar btn-change"> change date
+            </button>
+          </div>
+
+        </div>
       </div>
     );
   }
