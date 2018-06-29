@@ -16,7 +16,7 @@ export default class Calendar extends Component {
     this.style = props.style || {};
   }
 
-  weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
+    weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
     weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     months = moment.months();
 
@@ -51,6 +51,18 @@ export default class Calendar extends Component {
         )
     });
 
+    let blanks = [];
+    for (var i = 0; i < this.firstDayOfMonth(); i++) {
+      blanks.push(<td className="emptySlot">
+          {""}
+        </td>
+    );
+    }
+
+    console.log("blanks: ", blanks);
+
+    let trElems = [];
+
     return (
       <div className="calendar-container">
         <table className="calendar">
@@ -62,6 +74,7 @@ export default class Calendar extends Component {
             <tr>
               {weekdays}
             </tr>
+            {trElems}
           </tbody>
         </table>
       </div>
