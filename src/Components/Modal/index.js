@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-responsive-modal';
-import './CenteredModal.css';
+import './centeredModal.css';
+import Calendar from '../Calendar';
+
 
 export default class CenteredModal extends Component {
   state = {
@@ -30,6 +32,8 @@ export default class CenteredModal extends Component {
           </div>
           <div className="modal-content">
           {"I'm the Modal body"}
+
+          <Calendar />
 
           </div>
           <div className="modal-footer">
