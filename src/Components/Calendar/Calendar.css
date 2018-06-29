@@ -29,20 +29,20 @@ td {
 }
 
 .calendar-header {
-    border-bottom: 1px dashed rgb(29, 108, 147);
-    font-size: 1.6em;
+  border-bottom: 1px dashed rgb(29, 108, 147);
+  font-size: 20px;
 }
 
 .calendar-header td {
-    border-spacing: 0;
-    padding-left: 5px;
+  border-spacing: 0;
+  padding-left: 5px;
 }
 
 .day,
 .empty-slot,
 .week-day {
-    text-align: center;
-    height: 40px;
+  text-align: center;
+  height: 40px;
 }
 
 .empty-slot {
@@ -50,24 +50,42 @@ td {
 }
 
 .week-day {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .day {
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    font-size: 0.8em;
-    border: 1px solid rgb(230, 108, 85);
-    color: rgb(230, 108, 85);
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 0.8em;
+  border: 1px solid rgb(230, 108, 85);
+  color: rgb(230, 108, 85);
 }
 
 .current-day {
-    background-color: rgb(230, 108, 85);
-    width: 28px;
-    height: 28px;
-    line-height: 28px;
-    border-radius: 2%;
-    color: white;
+  background-color: rgb(230, 108, 85);
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 2%;
+  color: white;
+}
+
+.month-popup {
+    position: absolute;
+    padding: 5px;
+    background: white;
+    border: 2px solid skyblue;
+}
+
+.month-popup div {
+    padding: 0.3em;
+}
+
+.nav-month {
+    position: absolute;
+    top: 0.6em;
+    font-size: 0.6em;
+    right:3px;
 }
