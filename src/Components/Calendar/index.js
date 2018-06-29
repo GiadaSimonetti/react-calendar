@@ -13,6 +13,9 @@ export default class Calendar extends Component {
 
   constructor(props){
     super(props);
+    // this.width = props.width || "350px";
+    // this.style = props.style || {};
+    // this.style.width = this.width;
   }
 
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
@@ -40,6 +43,32 @@ export default class Calendar extends Component {
         let dateContext = this.state.dateContext;
         let firstDay = moment(dateContext).startOf('month').format('d'); // Day of week 0...1..5...6
         return firstDay;
+    }
+
+    SelectList = (props) => {
+      let popup = props.data.map((data) => {
+        return (
+          <div key={data}>
+            <a href="#">
+              {data}
+            </a>
+          </div>
+        );
+      });
+      return (
+        <div className="month-popup">
+          {popup}
+        </div>
+      );
+    }
+
+    MonthNav = () => {
+      return (
+        <span className="label-month">
+          {this.month()}
+          <this.SelectList data ={this.months} />
+        </span>
+      );
     }
 
   render() {
@@ -103,6 +132,9 @@ export default class Calendar extends Component {
         <table className="calendar">
           <thead>
             <tr className="calendar-header">
+              <td colSpan="5">
+                <this.MonthNav />
+              </td>
             </tr>
           </thead>
           <tbody>
