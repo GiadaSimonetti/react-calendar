@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import './calendar.css'
 
 export default class Calendar extends Component {
 
@@ -66,30 +67,38 @@ export default class Calendar extends Component {
       let className = (d == this.currentDay() ? "day current-day": "day");
       daysInMonth.push(
         <td key={d} className={className} >
-          <span>{d}</span>
+          <span className="number-day">{d}</span>
         </td>
       );
     }
     console.log("days: ", daysInMonth);
 
-    let totalSlots = [...blanks,  ...daysInMonth];
-    let trElems = [];
+    var totalSlots = [...blanks, ...daysInMonth];
+    let rows = [];
     let cells = [];
 
-    totalSlots.forEach((row, 1) => {
-      if ( (i % 7) !== 0 ) {
-        cells.push(row);
-      } else {
-        let insertRow = cells.slice();
-        rows.push(insertRow);
-        cells = [];
-        cells,push(row);
-      }
-      if (( i === totalSlots.length - 1)) {
-        let insertRow = cells.slice();
-        row.push(insertRow);
-      }
+    totalSlots.forEach((row, i) => {
+        if ((i % 7) !== 0) {
+            cells.push(row);
+        } else {
+            let insertRow = cells.slice();
+            rows.push(insertRow);
+            cells = [];
+            cells.push(row);
+        }
+        if (i === totalSlots.length - 1) {
+            let insertRow = cells.slice();
+            rows.push(insertRow);
+        }
     });
+
+    let trElems = rows.map((d, i) => {
+      return (
+        <tr key={i*100}>
+          {d}
+        </tr>
+      )
+    })
 
     return (
       <div className="calendar-container">

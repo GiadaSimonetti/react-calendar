@@ -34,16 +34,13 @@ export default class CenteredModal extends Component {
         <div className="modal-wrapper">
           <Modal open={open} onClose={this.onCloseModal} center>
           <div className="modal-header">
-          {"I'm the Modal header"}
           </div>
           <div className="modal-content">
-          {"I'm the Modal body"}
 
           <Calendar style={style} width="302px"/>
 
           </div>
           <div className="modal-footer">
-            {"I'm the Modal footer"}
           </div>
           </Modal>
         </div>

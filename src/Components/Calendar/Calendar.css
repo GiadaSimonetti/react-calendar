@@ -1,0 +1,73 @@
+.calendar-container,
+.calendar,
+.calendar-header,
+td,
+tr {
+    padding: 0;
+    margin: 0;
+}
+
+td {
+  margin: 08px;
+  padding: 08px;
+}
+
+.calendar-container {
+  margin-top: 30px;
+  border: 2px solid rgb(29, 108, 147);
+}
+
+.calendar {
+  background-color: white;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+
+  border-spacing: 5px 12px;
+  padding: 0 8px 8px 0;
+  border-collapse: separate;
+}
+
+.calendar-header {
+    border-bottom: 1px dashed rgb(29, 108, 147);
+    font-size: 1.6em;
+}
+
+.calendar-header td {
+    border-spacing: 0;
+    padding-left: 5px;
+}
+
+.day,
+.empty-slot,
+.week-day {
+    text-align: center;
+    height: 40px;
+}
+
+.empty-slot {
+  background-color: rgb(240, 240, 240);
+}
+
+.week-day {
+    font-size: 0.8em;
+}
+
+.day {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 0.8em;
+    border: 2px solid rgb(230, 108, 85);
+    margin: 1px;
+}
+
+.current-day {
+    background-color: rgb(230, 108, 85);
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 2%;
+    color: white;
+}
