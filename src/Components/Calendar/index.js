@@ -42,11 +42,25 @@ export default class Calendar extends Component {
         return firstDay;
     }
 
+    setMonth = (month) => {
+        let monthNo = this.months.indexOf(month);
+        let dateContext = Object.assign({}, this.state.dateContext);
+        dateContext = moment(dateContext).set("month", monthNo);
+        this.setState({
+            dateContext: dateContext
+        });
+    }
+
+    onSelectChange = (e, data) => {
+      this.setMonth(data);
+      this.props.onMonthChange && this.props.onMonthChange();
+    }
+
     SelectList = (props) => {
       let popup = props.data.map((data) => {
         return (
           <div key={data}>
-            <a href="#">
+            <a href="#" onClick={(e) => {this.onSelectChange(e, data)}}>
               {data}
             </a>
           </div>
