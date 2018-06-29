@@ -2,19 +2,25 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 export default class Calendar extends Component {
+
+  state = {
+    dateContext: moment(),
+    today: moment(),
+    showMonthPopup: false,
+    showYearPopup: false,
+  }
+
   constructor(props){
     super(props);
     this.width = props.width || "350px";
     this.style = props.style || {};
   }
 
-  weekdays = moment.weekdays();
-  weekdays = moment.weekdaysShort();
-  month = moment.month();
+  weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
+    weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    months = moment.months();
 
-  // moment().format('dddd');
-
-  year = () => {
+    year = () => {
         return this.state.dateContext.format("Y");
     }
     month = () => {
@@ -37,18 +43,27 @@ export default class Calendar extends Component {
         return firstDay;
     }
 
-
-  state = {
-    momentContext: moment(),
-    today: moment(),
-    showMonthPopup: false,
-    showYearPopup: false
-  }
-
   render() {
+
+    let weekdays = this.weekdaysShort.map((day) => {
+        return (
+            <td key={day} className="week-day">{day[0]}</td>
+        )
+    });
+
     return (
       <div className="calendar-container">
-        <h2>Calendar</h2>
+        <table className="calendar">
+          <thead>
+            <tr className="calendar-header">
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {weekdays}
+            </tr>
+          </tbody>
+        </table>
       </div>
     );
   }
