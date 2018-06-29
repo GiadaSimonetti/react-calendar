@@ -13,8 +13,6 @@ export default class Calendar extends Component {
 
   constructor(props){
     super(props);
-    this.width = props.width || "350px";
-    this.style = props.style || {};
   }
 
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
@@ -54,7 +52,7 @@ export default class Calendar extends Component {
 
     let blanks = [];
     for (let i = 0; i < this.firstDayOfMonth(); i++) {
-      blanks.push(<td className="emptySlot">
+      blanks.push(<td key={i * 80} className="emptySlot">
           {""}
         </td>
     );

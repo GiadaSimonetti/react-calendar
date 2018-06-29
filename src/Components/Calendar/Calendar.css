@@ -8,13 +8,13 @@ tr {
 }
 
 td {
-  margin: 08px;
-  padding: 08px;
+  margin: 6px;
+  padding: 6px;
 }
 
 .calendar-container {
   margin-top: 30px;
-  border: 2px solid rgb(29, 108, 147);
+  border: 1px solid rgb(29, 108, 147);
 }
 
 .calendar {
@@ -59,8 +59,8 @@ td {
     height: 24px;
     line-height: 24px;
     font-size: 0.8em;
-    border: 2px solid rgb(230, 108, 85);
-    margin: 1px;
+    border: 1px solid rgb(230, 108, 85);
+    color: rgb(230, 108, 85);
 }
 
 .current-day {
