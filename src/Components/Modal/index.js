@@ -24,7 +24,7 @@ export default class CenteredModal extends Component {
   };
 
   onDayClick = (e, day) => {
-    alert(day)
+    alert("You select day " + day)
   }
 
   render() {
