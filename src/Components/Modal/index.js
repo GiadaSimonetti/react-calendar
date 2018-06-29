@@ -23,6 +23,10 @@ export default class CenteredModal extends Component {
     this.setState({ open: false });
   };
 
+  onDayClick = (e, day) => {
+    alert(day)
+  }
+
   render() {
     const { open } = this.state;
     return (
@@ -37,7 +41,9 @@ export default class CenteredModal extends Component {
           </div>
           <div className="modal-content">
 
-          <Calendar style={style} width="302px"/>
+          <Calendar
+            onDayClick={(e, day) => this.onDayClick(e, day)}
+          />
 
           </div>
           <div className="modal-footer">

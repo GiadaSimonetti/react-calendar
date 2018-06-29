@@ -44,62 +44,6 @@ export default class Calendar extends Component {
         return firstDay;
     }
 
-    // setMonth = (month) => {
-    //     let monthNo = this.months.indexOf(month);
-    //     let dateContext = Object.assign({}, this.state.dateContext);
-    //     dateContext = moment(dateContext).set("month", monthNo);
-    //     this.setState({
-    //         dateContext: dateContext
-    //     });
-    // }
-    //
-    // onSelectChange = (e, data) => {
-    //   this.setMonth(data);
-    //   this.props.onMonthChange && this.props.onMonthChange();
-    // }
-    //
-    // SelectList = (props) => {
-    //   let popup = props.data.map((data) => {
-    //     return (
-    //       <div key={data}>
-    //         <a href="#" onClick={(e) => {this.onSelectChange(e, data)}}>
-    //           {data}
-    //         </a>
-    //       </div>
-    //     );
-    //   });
-    //   return (
-    //     <div className="month-popup">
-    //       {popup}
-    //     </div>
-    //   );
-    // }
-    //
-    // onChangeMonth = (e, month) => {
-    //   this.setState({
-    //       showMonthPopup: !this.state.showMonthPopup
-    //   });
-    // }
-    //
-    // MonthNav = () => {
-    //   return (
-    //     <span className="label-month"
-    //     onClick={(e) => {this.onChangeMonth(e, this.month())}}>
-    //       {this.month()}
-    //       {this.state.showMonthPopup &&
-    //         <this.SelectList data ={this.months} />
-    //       }
-    //     </span>
-    //   );
-    // }
-    //
-    // YearNav = () => {
-    //   return (
-    //     <span className="label-year"
-    //     {this.year()}
-    //     </span>
-    //   );
-    // }
 
     nextMonth = () => {
       let dateContext = Object.assign({}, this.state.dateContext);
@@ -117,6 +61,10 @@ export default class Calendar extends Component {
         dateContext: dateContext
       });
       this.props.onPrevMonth && this.props.onPrevMonth();
+    }
+
+    onDayClick = (e, day) => {
+      this.props.onDayClick && this.props.onDayClick(e, day)
     }
 
   render() {
@@ -142,7 +90,9 @@ export default class Calendar extends Component {
       let className = (d == this.currentDay() ? "day current-day": "day");
       daysInMonth.push(
         <td key={d} className={className} >
-          <span className="number-day">{d}</span>
+          <span className="number-day"
+          onClick={(e) => {this.onDayClick(e, d)}}
+          >{d}</span>
         </td>
       );
     }
