@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import CenteredModal from './Components/Modal';
 
-
 export default class App extends Component {
   render() {
     return (

@@ -4,6 +4,12 @@ import './centeredModal.css';
 import Calendar from '../Calendar';
 
 
+const style = {
+  position: "relative",
+  margin: "50px auto"
+};
+
+
 export default class CenteredModal extends Component {
   state = {
     open: false,
@@ -21,7 +27,7 @@ export default class CenteredModal extends Component {
     const { open } = this.state;
     return (
       <div className="modal">
-        <h4>Centered modal</h4>
+        <h4>Calendar</h4>
         <button className="btn btn-action" onClick={this.onOpenModal}>
           Open
         </button>{' '}
@@ -33,7 +39,7 @@ export default class CenteredModal extends Component {
           <div className="modal-content">
           {"I'm the Modal body"}
 
-          <Calendar />
+          <Calendar style={style} width="302px"/>
 
           </div>
           <div className="modal-footer">
