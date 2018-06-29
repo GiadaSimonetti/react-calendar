@@ -52,7 +52,7 @@ export default class Calendar extends Component {
     });
 
     let blanks = [];
-    for (var i = 0; i < this.firstDayOfMonth(); i++) {
+    for (let i = 0; i < this.firstDayOfMonth(); i++) {
       blanks.push(<td className="emptySlot">
           {""}
         </td>
@@ -60,6 +60,18 @@ export default class Calendar extends Component {
     }
 
     console.log("blanks: ", blanks);
+
+    let daysInMonth = [];
+    for (let d = 0; d <= this.daysInMonth(); d++) {
+      let className = (d = this.currentDay() ? "day current-day" : "day");
+      daysInMonth.push(
+        <td key={d} className={className} >
+          <span>{d}</span>
+        </td>
+      );
+    }
+
+    console.log("days: ", daysInMonth);
 
     let trElems = [];
 
