@@ -61,7 +61,9 @@ td {
   color: rgb(230, 108, 85);
 }
 
-.day:active{
+.btn-change:active,
+.btn-cancel:active,
+.day:active {
   background-color: rgb(230, 108, 85);
   color: white;
 }
@@ -109,4 +111,12 @@ td {
    border: 0;
    box-shadow: none;
    cursor: auto;
+ }
+
+ .btn-cancel:hover {
+   border: 1px solid rgb(230, 108, 85);
+   color: rgb(230, 108, 85);
+   box-shadow: 2px 2px 4px #A6A6A6;
+   outline:none;
+   cursor: pointer;
  }

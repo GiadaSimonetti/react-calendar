@@ -31,7 +31,7 @@ export default class CenteredModal extends Component {
     const { open } = this.state;
     return (
       <div className="modal">
-        <h4>Calendar</h4>
+        <h2>Calendar</h2>
         <button className="btn btn-action" onClick={this.onOpenModal}>
           Open
         </button>{' '}

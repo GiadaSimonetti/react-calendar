@@ -67,6 +67,10 @@ export default class Calendar extends Component {
       this.props.onDayClick && this.props.onDayClick(e, day)
     }
 
+    reset = () => {
+      return this.currentDay();
+    }
+
   render() {
 
     let weekdays = this.weekdaysShort.map((day) => {
@@ -158,10 +162,14 @@ export default class Calendar extends Component {
             <p className="delivery-message"> Delivery dates will change
             <br />for all upcoming boxes
             </p>
-            <button className="btn btn-calendar btn-cancel"> {"cancel,"}
+            <button className="btn btn-calendar btn-cancel"
+              onClick={(e)=> this.reset()}
+            > {"cancel,"}
             <br />{"don't change"}
             </button>
-            <button className="btn btn-calendar btn-change"> change date
+            <button className="btn btn-calendar btn-change"
+              onClick={(e)=>alert("Are you sure you want to chage the date?")}
+            > change date
             </button>
           </div>
 
