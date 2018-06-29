@@ -13,9 +13,6 @@ export default class Calendar extends Component {
 
   constructor(props){
     super(props);
-    // this.width = props.width || "350px";
-    // this.style = props.style || {};
-    // this.style.width = this.width;
   }
 
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
@@ -66,7 +63,9 @@ export default class Calendar extends Component {
       return (
         <span className="label-month">
           {this.month()}
-          <this.SelectList data ={this.months} />
+          {this.state.showMonthPopup &&
+            <this.SelectList data ={this.months} />
+          }
         </span>
       );
     }
