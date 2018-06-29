@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import './calendar.css'
+import './calendar.css';
+import leftArrow from './left-arrow.png';
+import rightArrow from './right-arrow.png';
 
 export default class Calendar extends Component {
 
@@ -160,9 +162,15 @@ export default class Calendar extends Component {
         <table className="calendar">
           <thead>
             <tr className="calendar-header">
-              <td colSpan="5">
+              <td colSpan="1" className="prev-month">
+              <img src={leftArrow} className="left-arrow" alt="left-arrow" />
+              </td>
+              <td colSpan="7">
                 <span className="label-month">{this.month()} </span>
                 <span className="label-year"> {this.year()}</span>
+              </td>
+              <td colSpan="1" className="next-month">
+                <img src={rightArrow} className="right-arrow" alt="right-arrow" />
               </td>
             </tr>
           </thead>

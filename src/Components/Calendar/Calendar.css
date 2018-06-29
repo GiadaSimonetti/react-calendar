@@ -8,13 +8,14 @@ tr {
 }
 
 td {
-  margin: 6px;
-  padding: 6px;
+  margin: 0.5%;
+  padding: 0.5%;
 }
 
 .calendar-container {
   margin-top: 30px;
   border: 1px solid rgb(29, 108, 147);
+  width: inherit;
 }
 
 .calendar {
@@ -72,7 +73,7 @@ td {
   color: white;
 }
 
-.month-popup {
+/* .month-popup {
     position: absolute;
     padding: 5px;
     background: white;
@@ -88,4 +89,14 @@ td {
     top: 0.6em;
     font-size: 0.6em;
     right:3px;
+} */
+
+.right-arrow {
+  width: 10px;
+  height: 20px;
+}
+
+.left-arrow {
+  width: 10px;
+  height: 20px;
 }
