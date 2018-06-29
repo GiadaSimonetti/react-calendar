@@ -91,12 +91,8 @@ td {
     right:3px;
 } */
 
-.right-arrow {
+.arrow {
   width: 10px;
   height: 20px;
-}
-
-.left-arrow {
-  width: 10px;
-  height: 20px;
+  cursor: pointer;
 }

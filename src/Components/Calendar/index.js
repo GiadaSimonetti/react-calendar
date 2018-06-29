@@ -101,6 +101,24 @@ export default class Calendar extends Component {
     //   );
     // }
 
+    nextMonth = () => {
+      let dateContext = Object.assign({}, this.state.dateContext);
+      dateContext = moment(dateContext).add(1, "month");
+      this.setState({
+        dateContext: dateContext
+      });
+      this.props.onNextMonth && this.props.onNextMonth();
+    }
+
+    prevMonth = () => {
+      let dateContext = Object.assign({}, this.state.dateContext);
+      dateContext = moment(dateContext).subtract(1, "month");
+      this.setState({
+        dateContext: dateContext
+      });
+      this.props.onPrevMonth && this.props.onPrevMonth();
+    }
+
   render() {
 
     let weekdays = this.weekdaysShort.map((day) => {
@@ -163,14 +181,18 @@ export default class Calendar extends Component {
           <thead>
             <tr className="calendar-header">
               <td colSpan="1" className="prev-month">
-              <img src={leftArrow} className="left-arrow" alt="left-arrow" />
+              <img src={leftArrow} className="arrow left-arrow" alt="left-arrow"
+                onClick={(e)=>{this.prevMonth()}}
+              />
               </td>
-              <td colSpan="7">
+              <td colSpan="5">
                 <span className="label-month">{this.month()} </span>
                 <span className="label-year"> {this.year()}</span>
               </td>
               <td colSpan="1" className="next-month">
-                <img src={rightArrow} className="right-arrow" alt="right-arrow" />
+                <img src={rightArrow} className="arrow right-arrow" alt="right-arrow"
+                  onClick={(e)=>{this.nextMonth()}}
+                />
               </td>
             </tr>
           </thead>
