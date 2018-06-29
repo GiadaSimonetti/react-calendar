@@ -62,18 +62,34 @@ export default class Calendar extends Component {
     console.log("blanks: ", blanks);
 
     let daysInMonth = [];
-    for (let d = 0; d <= this.daysInMonth(); d++) {
-      let className = (d = this.currentDay() ? "day current-day" : "day");
+    for (let d = 1; d <= this.daysInMonth(); d++) {
+      let className = (d == this.currentDay() ? "day current-day": "day");
       daysInMonth.push(
         <td key={d} className={className} >
           <span>{d}</span>
         </td>
       );
     }
-
     console.log("days: ", daysInMonth);
 
+    let totalSlots = [...blanks,  ...daysInMonth];
     let trElems = [];
+    let cells = [];
+
+    totalSlots.forEach((row, 1) => {
+      if ( (i % 7) !== 0 ) {
+        cells.push(row);
+      } else {
+        let insertRow = cells.slice();
+        rows.push(insertRow);
+        cells = [];
+        cells,push(row);
+      }
+      if (( i === totalSlots.length - 1)) {
+        let insertRow = cells.slice();
+        row.push(insertRow);
+      }
+    });
 
     return (
       <div className="calendar-container">
