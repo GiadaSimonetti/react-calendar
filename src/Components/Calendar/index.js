@@ -67,10 +67,6 @@ export default class Calendar extends Component {
       this.props.onDayClick && this.props.onDayClick(e, day)
     }
 
-    reset = () => {
-      return this.currentDay();
-    }
-
   render() {
 
     let weekdays = this.weekdaysShort.map((day) => {
@@ -91,7 +87,13 @@ export default class Calendar extends Component {
 
     let daysInMonth = [];
     for (let d = 1; d <= this.daysInMonth(); d++) {
-      let className = (d == this.currentDay() ? "day current-day": "day");
+      // let className = (d == this.currentDay() ? "day current-day": "day");
+
+      let className = (d === 1 || d === 4 || d === 5 || d === 8 || d === 11 || d === 12 ||
+        d === 15 || d === 18 || d === 19 || d === 22 || d === 25 || d === 26 || d === 29 ?
+        "not-available-day" : d == this.currentDay() ? "day current-day": "day")
+
+
       daysInMonth.push(
         <td key={d} className={className} >
           <span className="number-day"
@@ -99,6 +101,8 @@ export default class Calendar extends Component {
           >{d}</span>
         </td>
       );
+      console.log("d", d);
+      console.log("typeof d", typeof d);
     }
     console.log("days: ", daysInMonth);
 
@@ -163,7 +167,6 @@ export default class Calendar extends Component {
             <br />for all upcoming boxes
             </p>
             <button className="btn btn-calendar btn-cancel"
-              onClick={(e)=> this.reset()}
             > {"cancel,"}
             <br />{"don't change"}
             </button>
