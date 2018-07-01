@@ -4,12 +4,6 @@ import './centeredModal.css';
 import Calendar from '../Calendar';
 
 
-const style = {
-  position: "relative",
-  margin: "50px auto"
-};
-
-
 export default class CenteredModal extends Component {
   state = {
     open: false,
