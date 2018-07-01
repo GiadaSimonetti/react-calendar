@@ -8,9 +8,7 @@ export default class Calendar extends Component {
 
   state = {
     dateContext: moment(),
-    today: moment(),
-    showMonthPopup: false,
-    showYearPopup: false,
+    today: moment()
   }
 
   // constructor(props){
@@ -93,14 +91,22 @@ export default class Calendar extends Component {
         d === 15 || d === 18 || d === 19 || d === 22 || d === 25 || d === 26 || d === 29 ?
         "not-available-day" : d == this.currentDay() ? "day current-day": "day")
 
-
-      daysInMonth.push(
-        <td key={d} className={className} >
+      if (className !== "not-available-day") {
+        daysInMonth.push(
+          <td key={d} className={className} >
           <span className="number-day"
           onClick={(e) => {this.onDayClick(e, d)}}
           >{d}</span>
-        </td>
-      );
+          </td>
+        );
+      } else {
+        daysInMonth.push(
+          <td key={d} className={className} >
+          <span className="number-day">{d}</span>
+          </td>
+        );
+      }
+
       console.log("d", d);
       console.log("typeof d", typeof d);
     }
