@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CenteredModal from './Components/Modal';
+import ReactFontFace from 'react-font-face'
 
 export default class App extends Component {
   render() {

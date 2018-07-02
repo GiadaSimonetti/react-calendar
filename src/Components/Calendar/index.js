@@ -11,10 +11,6 @@ export default class Calendar extends Component {
     today: moment()
   }
 
-  // constructor(props){
-  //   super(props);
-  // }
-
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
     weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     months = moment.months();
@@ -41,7 +37,6 @@ export default class Calendar extends Component {
         let firstDay = moment(dateContext).startOf('month').format('d'); // Day of week 0...1..5...6
         return firstDay;
     }
-
 
     nextMonth = () => {
       let dateContext = Object.assign({}, this.state.dateContext);
@@ -85,7 +80,6 @@ export default class Calendar extends Component {
 
     let daysInMonth = [];
     for (let d = 1; d <= this.daysInMonth(); d++) {
-      // let className = (d == this.currentDay() ? "day current-day": "day");
 
       let className = (d === 1 || d === 4 || d === 5 || d === 8 || d === 11 || d === 12 ||
         d === 15 || d === 18 || d === 19 || d === 22 || d === 25 || d === 26 || d === 29 ?
@@ -108,7 +102,6 @@ export default class Calendar extends Component {
       }
 
       console.log("d", d);
-      console.log("typeof d", typeof d);
     }
     console.log("days: ", daysInMonth);
 

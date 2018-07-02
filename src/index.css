@@ -1,5 +1,17 @@
+
+@font-face {
+   font-family: "CooperHewitt-Thin";
+   src: url("/public/css/fonts/CooperHewitt-Thin.eot?") format("eot"),
+       url("/public/css/fonts/CooperHewitt-Thin.woff2") format("woff2"),
+       url("/public/css/fonts/CooperHewitt-Thin.woff") format("woff"),
+       url("/public/css/fonts/CooperHewitt-Thin.ttf") format("ttf"),
+       url("/public/css/fonts/CooperHewitt-Thin.svg#CooperHewitt-Thin") format("svg");
+       font-style: normal;
+       font-weight: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "CooperHewitt-Thin", sans-serif;
 }
